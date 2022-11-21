@@ -1,0 +1,12 @@
+def ks(c,wt,p,n):
+    if n==0 or c==0:
+        return 0
+    if (wt[n-1]>c):
+        return ks(c,wt,n-1)
+    else:
+        return max(p[n-1]+ks(c-wt[n-1],wt,p,n-1),ks(c,wt,p,n-1))
+p=[60,100,120]
+wt=[10,20,30]
+c=50
+n=len(p)
+print(ks(c,wt,p,n))
